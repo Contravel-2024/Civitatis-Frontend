@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-btn>
-      INICIA INCIDENCIA CI-13
+      INICIA INCIDENCIA MASTER
     </v-btn>
   </v-app>
 </template>
