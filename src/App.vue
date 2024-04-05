@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-btn>
-      INICIA INCIDENCIA CI-13
-    </v-btn>
+    <router-view></router-view>
   </v-app>
 </template>
 <script>
