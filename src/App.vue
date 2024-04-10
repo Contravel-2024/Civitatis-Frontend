@@ -1,5 +1,6 @@
 <template>
-  <v-app>
+  <v-app style="background-color: black;">
+    <v-img src="@/assets/Operadora.png" alt="" />
     <router-view></router-view>
   </v-app>
 </template>
