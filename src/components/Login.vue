@@ -1,27 +1,31 @@
 <template>
   <div class="form-container sign-in-container">
     <v-form action="#" :class="formClass + ' formLogin'">
-      <h1 class="pb-8 font-weight-bold">Sign in</h1>
+      <div
+        :class="divClass"
+      >
+        Bienvenido
+      </div>
       <v-text-field
         prepend-inner-icon="mdi-account"
-        placeholder="Username"
-        filled
+        placeholder="Usuario"
+        variant="underlined"
       ></v-text-field>
       <v-text-field
         prepend-inner-icon="mdi-lock"
-        placeholder="Password"
+        placeholder="Contraseña"
         type="password"
-        filled
+        variant="underlined"
       ></v-text-field>
       <v-btn
-        color="info"
+        color="#fe4e85"
         block
         dark
         tile
         class="pa-6 font-weight-bold"
         elevation="0"
         @click="login()"
-        >Sign In</v-btn
+        >Iniciar Sesion</v-btn
       >
     </v-form>
   </div>
@@ -34,7 +38,8 @@ export default {
       formClass: '',
       spanClass: '',
       username: null,
-      password: null
+      password: null,
+      divClass: ''
     }
   },
   mounted() {
@@ -43,19 +48,21 @@ export default {
 
     this.formClass = breakpoint.mdAndUp ? 'px-8' : 'px-2'
     this.spanClass = breakpoint.mdAndUp ? 'text-secondary forgot-password-md' : 'text-secondary forgot-password-sm'
+    this.divClass = breakpoint.mdAndUp ? 'sm-description ' : 'md-description '
   }
 }
 </script>
 
 <style scoped>
 .formLogin{
-width: 80%;
+width: 90%;
+background: transparent;
 }
 
 .sign-in-container {
   left: 0;
-  min-height: 40% !important;
-  width: 50%;
+  min-height: 100%;
+  width: 60vw;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -75,11 +82,4 @@ width: 80%;
   transform: translateX(-100%);
 }
 
-.forgot-password-sm {
-  font-size: 12px;
-}
-
-.forgot-password-md {
-  font-size: 15px;
-}
 </style>

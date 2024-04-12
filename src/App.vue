@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="card-overlay">
-    <v-app>
+    <v-app class="app-index">
       <div :class="divClass">
         <router-view />
       </div>
@@ -36,7 +36,12 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
+.app-index{
+  background: linear-gradient(to right, #284563, #89c7fa) !important; 
+}
+
 #app {
+  transition: all 0.6s ease-in-out;
   font-family: Raleway, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,6 +53,7 @@ export default {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  transition: transform 0.6s ease-in-out;
 }
 
 .sm-main-style {
