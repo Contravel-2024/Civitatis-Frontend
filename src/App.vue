@@ -4,13 +4,16 @@
       <div :class="divClass">
         <router-view />
       </div>
+      <footer :class="footerClass">
+        <a href="//www.contravel.com.mx" target="_blank">@{{ new Date().getFullYear() }} - <v-img
+            src="@/assets/logo_contravel_white.png" style="margin-left: 6px;" max-height="40" :max-width="90" /> </a>
+
+      </footer>
 
     </v-app>
   </div>
-
 </template>
 <script>
-
 export default {
   name: 'App',
   components: {
@@ -36,8 +39,8 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
-.app-index{
-  background: linear-gradient(to right, #284563, #89c7fa) !important; 
+.app-index {
+  background: linear-gradient(to right, #284563, #89c7fa) !important;
 }
 
 #app {
@@ -66,4 +69,44 @@ export default {
   width: 70%;
 }
 
+.footer-md {
+  padding: 30px 0px;
+}
+
+.footer-md a {
+  text-decoration: none;
+  color: white !important;
+  font-size: 1.2rem;
+  font-family: cursive;
+  font-weight: 600;
+}
+
+.footer-sm {
+  padding: 20px 0px;
+}
+
+.footer-sm a {
+  text-decoration: none;
+  color: white !important;
+  font-size: 0.9rem;
+  font-family: cursive;
+  font-weight: 600;
+}
+
+footer {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000058;
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+
+}
+
+footer a{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 </style>

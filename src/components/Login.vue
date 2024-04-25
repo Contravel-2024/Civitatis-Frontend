@@ -1,6 +1,6 @@
 <template>
   <div class="form-container sign-in-container">
-    <v-form action="#" :class="formClass + ' formLogin'">
+    <v-form action="#" :class="formClass + ' formLogin'" ref="form">
       <div
         :class="divClass"
       >
@@ -10,12 +10,20 @@
         prepend-inner-icon="mdi-account"
         placeholder="Usuario"
         variant="underlined"
+        @keypress.enter="SesionStart()"
+        v-model="username"
+        :rules="[v => !!v || 'Usuario requerido!']"
+        required
       ></v-text-field>
       <v-text-field
         prepend-inner-icon="mdi-lock"
         placeholder="Contraseña"
         type="password"
         variant="underlined"
+        @keypress.enter="SesionStart()"
+        v-model="password"
+        :rules="[v => !!v || 'Contraseña requerido!']"
+        required
       ></v-text-field>
       <v-btn
         color="#fe4e85"
@@ -24,13 +32,14 @@
         tile
         class="pa-6 font-weight-bold"
         elevation="0"
-        @click="login()"
+        @click="SesionStart()"
         >Iniciar Sesion</v-btn
       >
     </v-form>
   </div>
 </template>
 <script>
+import SesionServices from '@/services/SesionServices'
 export default {
   name: "loginView",
   data() {
@@ -39,7 +48,21 @@ export default {
       spanClass: '',
       username: null,
       password: null,
+      messageError: null,
+      isLoading: false,
       divClass: ''
+    }
+  },
+  methods:{
+    async SesionStart(){
+      const { valid } = await this.$refs.form.validate()
+      if(valid == false){
+        return
+      }
+      this.error = null
+      this.isLoading= true
+      const  respuesta = await SesionServices.Login(this.username, this.password)
+      console.log(respuesta)
     }
   },
   mounted() {

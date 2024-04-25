@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Login from "@/views/Sign-in";
+import { createRouter, createWebHistory } from "vue-router"
+import Login from "@/views/Sign-in"
+import Home from "@/views/home"
 
 
 const routes = [
@@ -8,6 +9,11 @@ const routes = [
     name: "Login",
     component: Login,
   },
+  {
+    path: "/home",
+    name: "home",
+    component: Home
+  }
 ];
 
 const router = createRouter({
